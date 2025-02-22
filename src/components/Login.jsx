@@ -44,11 +44,7 @@ function Login() {
       if (validateForm()) {
         console.log("Form Submitted:", formData);
         const response = await fetch(
-          ` ${
-            import.meta.env.PROD
-              ? "https://backend-ddi2.onrender.com"
-              : "http://localhost:3000"
-          }/api/user/login`,
+          `https://backend-ddi2.onrender.com/api/user/login`,
           {
             method: "POST",
             headers: {

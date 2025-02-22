@@ -56,11 +56,7 @@ function Register() {
       const previewUrl = await service.getFilePreview(fileResponse.$id);
 
       const response = await fetch(
-        ` ${
-          import.meta.env.PROD
-            ? "https://backend-ddi2.onrender.com"
-            : "http://localhost:3000"
-        }/api/user/register`,
+        `https://backend-ddi2.onrender.com/api/user/register`,
         {
           method: "POST",
           headers: {

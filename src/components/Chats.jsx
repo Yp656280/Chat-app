@@ -5,13 +5,10 @@ import { v4 as uuidv4 } from "uuid";
 
 import Checkbox from "@mui/material/Checkbox";
 import { useNavigate } from "react-router-dom";
-const baseUrl = ` ${
-  import.meta.env.PROD
-    ? "https://backend-ddi2.onrender.com"
-    : "http://localhost:3000"
-}`;
-const socket = io("http://localhost:3000", {
+
+const socket = io("https://backend-ddi2.onrender.com", {
   transports: ["websocket", "polling"],
+  withCredentials: true,
 });
 function Chats() {
   const userId = JSON.parse(sessionStorage.getItem("user"))._id;
@@ -88,19 +85,22 @@ function Chats() {
   }, [visible]);
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch(`${baseUrl}/api/user/getusers`, {
-        method: "POST",
-        body: JSON.stringify({
-          user: JSON.parse(sessionStorage.getItem("user"))?._id,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `https://backend-ddi2.onrender.com/api/user/getusers`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            user: JSON.parse(sessionStorage.getItem("user"))?._id,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       const data = await response.json();
       const responseUsersWithChat = await fetch(
-        `${baseUrl}/api/user/getUsersWithRoom`,
+        `https://backend-ddi2.onrender.com/api/user/getUsersWithRoom`,
         {
           method: "POST",
           body: JSON.stringify({
@@ -152,16 +152,19 @@ function Chats() {
   const createRoom = async (cur) => {
     console.log(cur, room);
     try {
-      const response = await fetch(`${baseUrl}/api/room/create-room`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user1: cur._id,
-          user2: JSON.parse(sessionStorage.getItem("user"))?._id,
-        }),
-      });
+      const response = await fetch(
+        `https://backend-ddi2.onrender.com/api/room/create-room`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user1: cur._id,
+            user2: JSON.parse(sessionStorage.getItem("user"))?._id,
+          }),
+        }
+      );
 
       const data = await response.json();
 
