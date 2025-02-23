@@ -1,8 +1,13 @@
-# React + Vite
+#MERN Stack Chat App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#This is a real-time chat application built using the MERN stack (MongoDB, Express, React, Node.js) with Socket.IO for WebSocket communication. The app features three main pages: Login, Register, and Chats, providing a seamless user experience for real-time messaging.
 
-Currently, two official plugins are available:
+#Key Features:
+#User Authentication: Secure login and registration system.
+#Real-Time Chat: Instant messaging using Socket.IO for seamless communication.
+#Message Management: Users can send and delete messages for better control.
+#Profile Image Upload: Appwrite is used for logo/profile picture uploading.
+#Database: MongoDB stores user details and chat history.
+#Deployment: Hosted on Render, ensuring accessibility and performance.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#This chat app provides a simple yet effective solution for real-time communication, leveraging modern web technologies for a smooth and interactive user experience. 🚀
